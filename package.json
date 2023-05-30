@@ -1,0 +1,65 @@
+{
+  "name": "@xiul/xdv-carousel-basic",
+  "description": "Webcomponent xdv-carousel-basic following open-wc recommendations",
+  "license": "MIT",
+  "author": "xdv-carousel-basic",
+  "version": "0.0.0",
+  "type": "module",
+  "main": "index.js",
+  "module": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./xdv-carousel-basic.js": "./xdv-carousel-basic.js"
+  },
+  "scripts": {
+    "analyze": "cem analyze --litelement",
+    "start": "web-dev-server",
+    "lint": "eslint --ext .js,.html . --ignore-path .gitignore && prettier \"**/*.js\" --check --ignore-path .gitignore",
+    "format": "eslint --ext .js,.html . --fix --ignore-path .gitignore && prettier \"**/*.js\" --write --ignore-path .gitignore",
+    "test": "web-test-runner --coverage",
+    "test:watch": "web-test-runner --watch",
+    "storybook": "npm run analyze -- --exclude dist && web-dev-server -c .storybook/server.mjs",
+    "storybook:build": "npm run analyze -- --exclude dist && build-storybook"
+  },
+  "dependencies": {
+    "@xiul/xdv-fetch-get-data-mixin": "^1.0.1",
+    "@xiul/xdv-set-custom-properties-from-attributes-mixin": "^1.0.0",
+    "@xiul/xdv-string-to-kebab-case-mixin": "^1.0.6",
+    "lit": "^2.0.2"
+  },
+  "devDependencies": {
+    "@custom-elements-manifest/analyzer": "^0.4.17",
+    "@open-wc/eslint-config": "^9.2.1",
+    "@open-wc/testing": "^3.1.6",
+    "@web/dev-server": "^0.1.34",
+    "@web/dev-server-storybook": "^0.0.2",
+    "@web/test-runner": "^0.14.0",
+    "eslint": "^8.31.0",
+    "eslint-config-prettier": "^8.3.0",
+    "husky": "^4.3.8",
+    "lint-staged": "^10.5.4",
+    "prettier": "^2.4.1"
+  },
+  "customElements": "custom-elements.json",
+  "eslintConfig": {
+    "extends": [
+      "@open-wc",
+      "prettier"
+    ]
+  },
+  "prettier": {
+    "singleQuote": true,
+    "arrowParens": "avoid"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "prettier --write"
+    ]
+  }
+}
