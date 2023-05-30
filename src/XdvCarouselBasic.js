@@ -1,10 +1,9 @@
 import { LitElement, html, css } from 'lit';
 
-import { XdvStringToKebabCase } from '../mixins/XdvStringToKebabCase'
-import { XdvGetData } from '../mixins/XdvGetData';
-import { XdvSetCustomPropertiesFromAttributesMixin } from '../mixins/XdvSetCustomPropertiesFromAttributesMixin';
+import { XdvStringToKebabCase } from '@xiul/xdv-string-to-kebab-case-mixin'
+import { XdvGetData } from '@xiul/xdv-fetch-get-data-mixin';
+import { XdvSetCustomPropertiesFromAttributesMixin } from '@xiul/xdv-set-custom-properties-from-attributes-mixin'
 
-// let data = {}
 export class XdvCarousel extends XdvStringToKebabCase(XdvGetData(XdvSetCustomPropertiesFromAttributesMixin(LitElement))) {
   static get properties() {
     return {
@@ -175,7 +174,8 @@ export class XdvCarousel extends XdvStringToKebabCase(XdvGetData(XdvSetCustomPro
         border: none;
         border-radius: 50%;
         font-size: 18px;
-        background-color: var(--xdv-slider-btn-color ,#fff);
+        color: var(--xdv-slider-btn-color ,#000);
+        background-color: var(--xdv-slider-btn-bg ,#fff);
         cursor: pointer;
         transition: transform 0.25s;
       }
@@ -192,7 +192,9 @@ export class XdvCarousel extends XdvStringToKebabCase(XdvGetData(XdvSetCustomPro
       
       .slider__btn:hover,
       .slider__btn:active {
-        transform: scale(1.1);
+        transform: scale(var(--xdv-slider-btn-hover-scale, 1.1));
+        color: var(--xdv-slider-btn-hover-color ,#000);
+        background-color: var(--xdv-slider-btn-hover-bg ,#fff);
       }
 
       .slider__btn:focus-visible {
@@ -201,7 +203,7 @@ export class XdvCarousel extends XdvStringToKebabCase(XdvGetData(XdvSetCustomPro
 
       .slider__dots {
         position: absolute;
-        bottom: 4px;
+        bottom: var(--xdv-slider-dots-bottom-position , 0.25rem);
         display: flex;
         justify-content: center;
         gap: 5px;
@@ -214,7 +216,7 @@ export class XdvCarousel extends XdvStringToKebabCase(XdvGetData(XdvSetCustomPro
         height: 16px;
         border: none;
         border-radius: 50%;
-        background-color: var(--xdv-slider-dot-color ,#f5f2f2);
+        background-color: var(--xdv-slider-dot-bg ,#f5f2f2);
         z-index: 10px;
         cursor: pointer;
         transition: background-color 0.25s;
@@ -222,7 +224,7 @@ export class XdvCarousel extends XdvStringToKebabCase(XdvGetData(XdvSetCustomPro
 
       .slider__dot:hover,
       .slider__dot[selected] {
-        background-color: var(--xdv-slider-dot-color-hover, #d89999);
+        background-color: var(--xdv-slider-dot-bg-hover, #d89999);
       }
 
       @media screen and (max-width: 900px) {
