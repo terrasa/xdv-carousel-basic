@@ -18,6 +18,8 @@ export class XdvCarouselBasic extends XdvStringToKebabCase(XdvFetchGetDataMixin(
     this.slides = []
     this.sliderContainer = null 
     document.addEventListener('xdvCheckboxToggle', this.xdvUrlsCarousel.bind(this))
+
+    console.log('carousel constructor', this.apiUrl, this.slideUrls)
   } 
   
    firstUpdated () {
@@ -28,6 +30,7 @@ export class XdvCarouselBasic extends XdvStringToKebabCase(XdvFetchGetDataMixin(
     this.slides = this.shadowRoot.querySelectorAll('.slider__slide')
     this.xdvSetCustomProperties ('slide')
     this.sliderContainer = this.shadowRoot.querySelector('.slider__container')
+    console.log('carousel First UpDate', this.apiUrl, this.slideUrls)
   }
 
   xdvChangeSlide (e) {
