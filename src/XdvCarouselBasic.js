@@ -1,10 +1,10 @@
 import { LitElement, html, css } from 'lit';
 
 import { XdvStringToKebabCase } from '@xiul/xdv-string-to-kebab-case-mixin'
-import { XdvGetData } from '@xiul/xdv-fetch-get-data-mixin';
+import { XdvFetchGetDataMixin } from '@xiul/xdv-fetch-get-data-mixin';
 import { XdvSetCustomPropertiesFromAttributesMixin } from '@xiul/xdv-set-custom-properties-from-attributes-mixin'
 
-export class XdvCarousel extends XdvStringToKebabCase(XdvGetData(XdvSetCustomPropertiesFromAttributesMixin(LitElement))) {
+export class XdvCarousel extends XdvStringToKebabCase(XdvFetchGetDataMixin(XdvSetCustomPropertiesFromAttributesMixin(LitElement))) {
   static get properties() {
     return {
       slideSelected: { type: Number},
