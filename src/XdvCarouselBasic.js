@@ -4,7 +4,7 @@ import { XdvStringToKebabCase } from '@xiul/xdv-string-to-kebab-case-mixin'
 import { XdvFetchGetDataMixin } from '@xiul/xdv-fetch-get-data-mixin';
 import { XdvSetCustomPropertiesFromAttributesMixin } from '@xiul/xdv-set-custom-properties-from-attributes-mixin'
 
-export class XdvCarousel extends XdvStringToKebabCase(XdvFetchGetDataMixin(XdvSetCustomPropertiesFromAttributesMixin(LitElement))) {
+export class XdvCarouselBasic extends XdvStringToKebabCase(XdvFetchGetDataMixin(XdvSetCustomPropertiesFromAttributesMixin(LitElement))) {
   static get properties() {
     return {
       slideSelected: { type: Number},
@@ -236,4 +236,3 @@ export class XdvCarousel extends XdvStringToKebabCase(XdvFetchGetDataMixin(XdvSe
     `
   ];
 }
-customElements.define('xdv-carousel', XdvCarousel);
