@@ -23,6 +23,7 @@ export class XdvCarouselBasic extends XdvStringToKebabCase(XdvFetchGetDataMixin(
   } 
   
    firstUpdated () {
+    this.apiUrl = this.dataset.apiUrl
     (async() => {
       await this.getData()
       

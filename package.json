@@ -3,7 +3,7 @@
   "description": "Webcomponent xdv-carousel-basic following open-wc recommendations",
   "license": "MIT",
   "author": "xdv-carousel-basic",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "type": "module",
   "main": "index.js",
   "module": "index.js",
