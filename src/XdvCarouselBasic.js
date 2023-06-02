@@ -24,6 +24,7 @@ export class XdvCarouselBasic extends XdvStringToKebabCase(XdvFetchGetDataMixin(
   
    firstUpdated () {
     (async() => {
+      this.apiUrl = await this.dataset.apiUrl
       await this.getData()
       
     })()
@@ -62,7 +63,7 @@ export class XdvCarouselBasic extends XdvStringToKebabCase(XdvFetchGetDataMixin(
     })
   }
 
-  async xdvUrlsCarousel (e) {
+  async xdvUrlsCarousel (e) {  
     
     if (e.detail.id === this.getAttribute('id') && this.dataset.apiValueFalse === undefined && e.detail.apiValue === 'undefined') {
       this.slideUrls = e.detail.value;
