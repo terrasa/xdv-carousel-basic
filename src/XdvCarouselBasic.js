@@ -18,8 +18,6 @@ export class XdvCarouselBasic extends XdvStringToKebabCase(XdvFetchGetDataMixin(
     this.slides = []
     this.sliderContainer = null 
     document.addEventListener('xdvCheckboxToggle', this.xdvUrlsCarousel.bind(this))
-
-    console.log('carousel constructor', this.apiUrl, this.slideUrls)
   } 
   
    firstUpdated () {
@@ -31,7 +29,6 @@ export class XdvCarouselBasic extends XdvStringToKebabCase(XdvFetchGetDataMixin(
     this.slides = this.shadowRoot.querySelectorAll('.slider__slide')
     this.xdvSetCustomProperties ('slide')
     this.sliderContainer = this.shadowRoot.querySelector('.slider__container')
-    console.log('carousel First UpDate', this.apiUrl, this.slideUrls)
   }
 
   xdvChangeSlide (e) {
@@ -196,9 +193,9 @@ export class XdvCarouselBasic extends XdvStringToKebabCase(XdvFetchGetDataMixin(
       
       .slider__btn:hover,
       .slider__btn:active {
-        transform: scale(var(--xdv-slider-btn-hover-scale, 1.1));
-        color: var(--xdv-slider-btn-hover-color ,#000);
-        background-color: var(--xdv-slider-btn-hover-bg ,#fff);
+        transform: scale(var(--xdv-slider-btn-scale-hover, 1.1));
+        color: var(--xdv-slider-btn-color-hover ,#000);
+        background-color: var(--xdv-slider-btn-bg-hover ,#fff);
       }
 
       .slider__btn:focus-visible {
